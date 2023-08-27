@@ -1,0 +1,22 @@
+.container {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(233, 232, 232);
+	padding: 1rem;
+}
+.faqs {
+	width: 50rem;
+	max-width: 1000;
+	background-color: #fff;
+	border-radius: 0.6rem;
+	-webkit-border-radius: 0.6rem;
+	-moz-border-radius: 0.6rem;
+	-ms-border-radius: 0.6rem;
+	-o-border-radius: 0.6rem;
+	padding: 1rem;
+}
+h1 {
+	text-align: center;
+}

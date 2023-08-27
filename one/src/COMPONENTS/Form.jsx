@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Formik, useFormik } from "formik";
+import { Formik, useFormik, yupToFormErrors } from "formik";
+import { object, string, number, date, InferType } from "yup";
 
 const Form = () => {
 	const formik = useFormik({
@@ -8,11 +9,20 @@ const Form = () => {
 			email: "",
 			password: "",
 		},
+		validationSchema: yup.object({
+			name: yup.string().min(3, "Name must have altest 3 characters").required,
+			email: yup.email().min(3).required,
+			password: yup.string().min(6, "password must have atlest 6 characters")
+				.required,
+		}),
 		onSubmit: (values, { resetForm }) => {
 			console.log(values);
 			resetForm({ values: "" });
 		},
 	});
+
+	console.error(formik.errors);
+
 	return (
 		<form onSubmit={formik.handleSubmit}>
 			<div>
